@@ -1,0 +1,56 @@
+import random
+    temp = 0
+
+    while True:
+        if temp == 0:
+            var = input("Do you want to play the guessing game: (YES/NO)")
+            var = var.upper()
+            var = var.strip()
+            if var == "NO":
+                break
+        elif temp == 1:
+            var = input("Do you want to play another guessing game: (YES/NO)")
+            var = var.upper()
+            var = var.strip()
+            if var == "NO":
+                break
+        if (var == "YES"):
+            x = 0
+            n = 0
+            win = 0
+            loss = 0
+            list = []
+            while (n < 5):
+                num = int(input("Enter a random number between 0 and 5 :"))
+                while (num > 5):
+                    print(" $$$$$ERROR$$$$$$$_____ #Enter Number below 5#")
+                    n = n - 1
+                    x = x + 1
+                    break
+                a = random.randint(0, 5)
+                list.append(a)
+                if (num == a):
+                    win = win + 1
+                    n = n + 1
+                    a = 0
+                else:
+                    loss = loss + 1
+                    n = n + 1
+                    a = 0
+            if ((win > loss) and (x > 0)):
+                print("You won")
+                print("The random number list is ", list[x:len(list)])
+                temp = 1
+            elif ((loss > win) and (x > 0)):
+                print("You lose")
+                print("The random number list is ", list[x:len(list)])
+                temp = 1
+            elif (win > loss):
+                print("You won")
+                print("The random number list is ", list)
+                temp = 1
+            elif (loss > win):
+                print("You lose")
+                print("The random number list is ", list)
+                temp = 1
+    print("Bye bye..... See you soon")
